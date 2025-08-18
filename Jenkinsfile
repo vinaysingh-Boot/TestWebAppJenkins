@@ -19,14 +19,7 @@ pipeline{
 				sh 'mvn clean compile'
 			}
 		}
-		        
-        stage('Package') {
-            steps {
-				echo 'Packaging the application...'
-                sh 'mvn package'
-            }
-        }
-        
+		                
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
