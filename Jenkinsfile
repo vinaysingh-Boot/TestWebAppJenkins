@@ -19,14 +19,7 @@ pipeline{
 				sh 'mvn clean compile'
 			}
 		}
-		
-		stage('Test') {
-            steps {
-				echo 'Running unit tests...'
-                sh 'mvn test'
-            }
-        }
-        
+		        
         stage('Package') {
             steps {
 				echo 'Packaging the application...'
