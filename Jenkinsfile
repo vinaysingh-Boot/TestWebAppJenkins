@@ -19,12 +19,5 @@ pipeline{
 				sh 'mvn clean compile'
 			}
 		}
-		                
-        stage('Deploy') {
-            steps {
-                echo 'Deploying the application...'
-                // example: copy war/jar to Tomcat, or upload to AWS S3
-            }
-        }
 	}
 }
