@@ -1,5 +1,9 @@
 pipeline{
 	agent any
+	tools {
+        maven 'my_maven'   // Name of Maven installed in Jenkins (Manage Jenkins > Global Tool Config)
+        jdk 'java'        // Name of JDK installed in Jenkins
+    }
 	stages{
 		stage('Checkout') {
             steps {
@@ -11,18 +15,21 @@ pipeline{
         
 		stage('build'){
 			steps{
+				echo 'Building the project...'
 				sh 'mvn clean compile'
 			}
 		}
 		
 		stage('Test') {
             steps {
+				echo 'Running unit tests...'
                 sh 'mvn test'
             }
         }
         
         stage('Package') {
             steps {
+				echo 'Packaging the application...'
                 sh 'mvn package'
             }
         }
